@@ -1,0 +1,124 @@
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 1.5rem;">
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Net revenue</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">$693.1K</p>
+  </div>
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Orders</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">6,122</p>
+  </div>
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Avg order value</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">$113.22</p>
+  </div>
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Customers</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">850</p>
+  </div>
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Return rate</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">8.4%</p>
+  </div>
+  <div style="background: var(--surface-1); border-radius: var(--radius); padding: 1rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 4px;">Cancel rate</p>
+    <p style="font-size: 24px; font-weight: 500; margin: 0;">4.1%</p>
+  </div>
+</div>
+
+<p style="font-size: 14px; font-weight: 500; margin: 0 0 8px;">Monthly net revenue, 2023 to 2024</p>
+<div style="position: relative; width: 100%; height: 220px; margin-bottom: 1.75rem;">
+  <canvas id="revChart" role="img" aria-label="Line chart of monthly net revenue from January 2023 to December 2024, trending upward with a holiday-season peak each November">Monthly net revenue rises from about $1,600 in Jan 2023 to a peak near $59,500 in Jul 2024.</canvas>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 1.75rem;">
+  <div>
+    <p style="font-size: 14px; font-weight: 500; margin: 0 0 8px;">Revenue by category</p>
+    <div style="position: relative; width: 100%; height: 260px;">
+      <canvas id="catChart" role="img" aria-label="Horizontal bar chart of net revenue by product category">Electronics leads at $266.9K, followed by Home and Kitchen at $134.0K, Sports and Outdoors at $122.1K, Apparel at $91.7K, Beauty at $42.0K, and Office at $36.4K.</canvas>
+    </div>
+  </div>
+  <div>
+    <p style="font-size: 14px; font-weight: 500; margin: 0 0 8px;">Customers by RFM segment</p>
+    <div style="position: relative; width: 100%; height: 220px;">
+      <canvas id="segChart" role="img" aria-label="Donut chart of customer count by RFM segment">Champions 235 customers, Loyal customers 195, Potential loyalists 214, At risk 133, Lost or low value 73.</canvas>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#2a78d6;"></span>Champions 28%</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#eb6834;"></span>Potential loyalists 25%</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#1baf7a;"></span>Loyal customers 23%</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#eda100;"></span>At risk 16%</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#e87ba4;"></span>Lost or low value 9%</span>
+    </div>
+  </div>
+</div>
+
+<p style="font-size: 14px; font-weight: 500; margin: 0 0 8px;">Order status breakdown</p>
+<div style="position: relative; width: 100%; height: 90px;">
+  <canvas id="statusChart" role="img" aria-label="Horizontal stacked bar showing order status: completed, returned, cancelled">Of 7,001 orders, 6,126 completed (87.5%), 591 returned (8.4%), 288 cancelled (4.1%).</canvas>
+</div>
+<div style="display: flex; gap: 16px; margin-top: 8px; font-size: 12px; color: var(--text-secondary);">
+  <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#0ca30c;"></span>Completed 87.5%</span>
+  <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#fab219;"></span>Returned 8.4%</span>
+  <span style="display:flex;align-items:center;gap:4px;"><span style="width:9px;height:9px;border-radius:2px;background:#d03b3b;"></span>Cancelled 4.1%</span>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const months = ["Jan 23","Feb 23","Mar 23","Apr 23","May 23","Jun 23","Jul 23","Aug 23","Sep 23","Oct 23","Nov 23","Dec 23","Jan 24","Feb 24","Mar 24","Apr 24","May 24","Jun 24","Jul 24","Aug 24","Sep 24","Oct 24","Nov 24","Dec 24"];
+const revenue = [1638,3702,8547,9048,14768,13031,18102,21537,23277,31413,26490,31710,38459,35369,42878,42031,49225,52030,59539,51830,48830,43034,17756,8880];
+
+new Chart(document.getElementById('revChart'), {
+  type: 'line',
+  data: { labels: months, datasets: [{ data: revenue, borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.1)', fill: true, borderWidth: 2, pointRadius: 0, tension: 0.3 }] },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => '$' + c.parsed.y.toLocaleString() } } },
+    scales: {
+      x: { ticks: { autoSkip: true, maxTicksLimit: 8, color: '#898781' }, grid: { display: false } },
+      y: { ticks: { callback: (v) => '$' + (v/1000) + 'K', color: '#898781' }, grid: { color: '#e1e0d9' } }
+    }
+  }
+});
+
+new Chart(document.getElementById('catChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Electronics','Home and kitchen','Sports and outdoors','Apparel','Beauty','Office'],
+    datasets: [{ data: [266939,133990,122066,91739,42019,36367], backgroundColor: '#2a78d6', borderRadius: 4 }]
+  },
+  options: {
+    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => '$' + c.parsed.x.toLocaleString() } } },
+    scales: {
+      x: { ticks: { callback: (v) => '$' + (v/1000) + 'K', color: '#898781' }, grid: { color: '#e1e0d9' } },
+      y: { ticks: { color: '#52514e' }, grid: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('segChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Champions','Potential loyalists','Loyal customers','At risk','Lost or low value'],
+    datasets: [{ data: [235,214,195,133,73], backgroundColor: ['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4'], borderColor: '#fcfcfb', borderWidth: 2 }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { display: false } } }
+});
+
+new Chart(document.getElementById('statusChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Orders'],
+    datasets: [
+      { label: 'Completed', data: [6126], backgroundColor: '#0ca30c' },
+      { label: 'Returned', data: [591], backgroundColor: '#fab219' },
+      { label: 'Cancelled', data: [288], backgroundColor: '#d03b3b' }
+    ]
+  },
+  options: {
+    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    scales: { x: { stacked: true, display: false }, y: { stacked: true, display: false } },
+    plugins: { legend: { display: false } }
+  }
+});
+</script>
